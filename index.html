@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+
+        <meta charset="UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Auto Compare</title>
+        
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <body>
+
+        <header>
+
+            <h1>Auto Compare</h1>
+
+            <p>Compare carros populares do Brasil de forma simples e visual</p>
+
+        </header>
+
+        <main>
+
+            <section class="selecao">
+
+                <h2>Escolha seus carros</h2>
+
+                <p>Selecione dois veículos para iniciar a comparação.</p>
+
+            <div class="seletores">
+
+                <div class="campo-carro">
+
+                <label for="carro1">Carro 01</label>
+
+                 <select id="carro1">
+                    <option value="">Selecione um carro</option>
+                    <option value="polo">Volkwagen Polo Track 1.0 MPI</option>
+                    <option value="onix">Chevrolet Onix 1.0 MT</option>
+                    <option value="hb20">Hyundai HB20 Sense 1.0</option>
+                    <option value="tcross">Volkwagen T-Cross Sense 200 TSI</option>
+                    <option value="tracker">Chevrolet Tracker Turbo AT</option>
+                    <option value="corolla">Toyota Corolla GLi 2.0</option>
+    
+                 </select>
+
+                </div>
+
+                <div class="campo-carro">
+
+                <label for="carro2">Carro 02</label>
+
+                 <select id="carro2">
+                    <option value="">Selecione um carro</option>
+                    <option value="polo">Volkwagen Polo Track 1.0 MPI</option>
+                    <option value="onix">Chevrolet Onix 1.0 MT</option>
+                    <option value="hb20">Hyundai HB20 Sense 1.0</option>
+                    <option value="tcross">Volkwagen T-Cross Sense 200 TSI</option>
+                    <option value="tracker">Chevrolet Tracker Turbo AT</option>
+                    <option value="corolla">Toyota Corolla GLi 2.0</option>
+
+                 </select>
+
+                </div>
+
+            </div>
+
+
+                <button type="button" id="comparar">Comparar</button>
+
+                <p id="mensagem"></p>
+
+
+            </section>
+
+            <section class="comparacao">
+
+                <h2>Comparação</h2>
+
+                <div id="resultado"></div>
+
+            </section>
+
+        </main>
+
+        <script src="script.js"></script>
+
+    </body>
+
+</html>
