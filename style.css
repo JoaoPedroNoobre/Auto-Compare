@@ -346,7 +346,113 @@ footer p{
     color: #8f8f8f;
 
     font-size: 0.9rem;
-    letter-spacing: 0,5px;
+    letter-spacing: 0.5px;
+}
+
+.valor-carro .vencedor{
+    color: #70e000;
+}
+
+.valor-carro .empate{
+    color: #f5c542;
+}
+
+.resultado-final{
+    width: 100%;
+    margin-top: 40px;
+    padding: 30px;
+
+    background-color: #151515;
+    border-top: 4px solid #ff3b30;
+
+    text-align: center;
+}
+
+.resultado-final h3{
+    margin-bottom: 30px;
+
+    font-size: 1,6rem;
+
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.placar-final{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.placar-carro{
+    padding: 20px;
+}
+
+.placar-carro + .placar-carro{
+    border-left: 3px solid #333333;
+}
+
+.placar-carro strong{
+    display: block;
+
+    color: #d0d0d0;
+
+    text-transform: uppercase;
+
+    overflow-wrap: anywhere;
+}
+
+.placar-carro p{
+    margin-top: 15px;
+
+    font-size: 3rem;
+    font-weight: bold;
+
+    color: #ffffff;
+}
+
+.placar-carro small{
+    color: #8f8f8f;
+
+    text-transform: uppercase;
+}
+
+.resultado-vencedor{
+    margin-top: 30px;
+
+    font-size: 1.3rem;
+    font-weight: bold;
+
+    color: #70e000;
+}
+
+#comparar-novamente{
+    margin-top: 30px;
+
+    padding: 14px 28px;
+
+    background-color: #ff3b30;
+    color: #ffffff;
+
+    border: none;
+    border-left: 4px solid #ffffff;
+
+    font-size: 0.9rem;
+    font-weight: bold;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+}
+
+#comparar-novamente:hover{
+    background-color: #d92d24;
+}
+
+.diferenca-preco{
+    margin-top: 25px;
+    text-align: center;
+    font-size: 1rem;
+    color: #8f8f8f;
 }
 
 @media (max-width: 768px){

@@ -10,6 +10,7 @@ const carros = {
 
     polo: {
         nome: "Volkswagen Polo Track 1.0 MPI",
+        preco: 91722,
         imagem: "img/polo.webp",
         motor: "1.0 MPI Flex",
         cilindrada: 999,
@@ -45,6 +46,7 @@ const carros = {
 
     onix: {
         nome: "Chevrolet Onix 1.0 MT",
+        preco: 96257,
         imagem: "img/onix.jpg",
         motor: "1.0 aspirado Flex",
         cilindrada: 999,
@@ -80,6 +82,7 @@ const carros = {
 
     hb20: {
         nome: "Hyundai HB20 Sense 1.0",
+        preco: 78456,
         imagem: "img/hb20.webp",
         motor: "Kappa 1.0 12V Flex",
         cilindrada: 998,
@@ -115,6 +118,7 @@ const carros = {
 
     tcross: {
         nome: "Volkswagen T-Cross Sense 200 TSI",
+        preco: 119990,
         imagem: "img/t-cross.webp",
         motor: "1.0 TSI Turbo Flex",
         cilindrada: 999,
@@ -150,6 +154,7 @@ const carros = {
 
     tracker: {
         nome: "Chevrolet Tracker Turbo AT",
+        preco: 120510,
         imagem: "img/tracker.jpg",
         motor: "1.0 Turbo Flex",
         cilindrada: 999,
@@ -185,6 +190,7 @@ const carros = {
 
     corolla: {
         nome: "Toyota Corolla GLi 2.0",
+        preco: 169666,
         imagem: "img/corolla.jpg",
         motor: "2.0 Dynamic Force Flex",
         cilindrada: 1987,
@@ -218,6 +224,49 @@ const carros = {
     }
 };
 
+function compararMaior(valor1, valor2) {
+
+    if (valor1 === null || valor2 === null) {
+        return ["", ""];
+    }
+
+    if (valor1 > valor2) {
+        return ["vencedor", ""];
+    }
+
+    if (valor2 > valor1) {
+        return ["", "vencedor"];
+    }
+
+    return["empate", "empate"];
+}
+
+function compararMenor(valor1, valor2) {
+    
+    if (valor1 === null || valor2 === null) {
+        return ["", ""];
+    }
+
+    if (valor1 < valor2) {
+        return ["vencedor", ""];
+    }
+
+    if (valor2 < valor1) {
+        return ["", "vencedor"];
+    }
+
+    return["empate", "empate"];
+}
+
+function formatarPreco(valor) {
+
+    return valor.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+        minimumFractionDigits: 0
+    });
+}
+
 
 botaoComparar.addEventListener("click", function() {
 
@@ -238,6 +287,130 @@ botaoComparar.addEventListener("click", function() {
 
     const primeiroCarro = carros[carro1.value];
     const segundoCarro = carros[carro2.value];
+
+    const potencialEtanol = compararMaior(
+        primeiroCarro.potenciaEtanol,
+        segundoCarro.potenciaEtanol
+    );
+
+    const potencialGasolina = compararMaior(
+        primeiroCarro.potenciaGasolina,
+        segundoCarro.potenciaGasolina
+    );
+
+    const torqueEtanol = compararMaior(
+        primeiroCarro.torqueEtanol,
+        segundoCarro.torqueEtanol
+    );
+
+    const torqueGasolina = compararMaior(
+        primeiroCarro.torqueGasolina,
+        segundoCarro.torqueGasolina
+    );
+
+    const consumoCidadeEtanol = compararMaior(
+        primeiroCarro.consumoCidadeEtanol,
+        segundoCarro.consumoCidadeEtanol
+    );
+
+    const consumoEstradaEtanol = compararMaior(
+        primeiroCarro.consumoEstradaEtanol,
+        segundoCarro.consumoEstradaEtanol
+    );
+
+    const consumoCidadeGasolina = compararMaior(
+        primeiroCarro.consumoCidadeGasolina,
+        segundoCarro.consumoCidadeGasolina
+    );
+
+    const consumoEstradaGasolina = compararMaior(
+        primeiroCarro.consumoEstradaGasolina,
+        segundoCarro.consumoEstradaGasolina
+    );
+
+    const zeroACemEtanol = compararMenor(
+        primeiroCarro.zeroACemEtanol,
+        segundoCarro.zeroACemEtanol
+    );
+
+    const zeroACemGasolina = compararMenor(
+        primeiroCarro.zeroACemGasolina,
+        segundoCarro.zeroACemGasolina
+    );
+
+    const velocidadeMaximaEtanol = compararMaior(
+        primeiroCarro.velocidadeMaximaEtanol,
+        segundoCarro.velocidadeMaximaEtanol
+    );
+
+    const velocidadeMaximaGasolina = compararMaior(
+        primeiroCarro.velocidadeMaximaGasolina,
+        segundoCarro.velocidadeMaximaGasolina
+    );
+    
+    const portaMalas = compararMaior(
+        primeiroCarro.portaMalas,
+        segundoCarro.portaMalas
+    );
+
+    const preco = compararMenor(
+        primeiroCarro.preco,
+        segundoCarro.preco
+    );
+
+    const diferencaPreco =
+        Math.abs(primeiroCarro.preco - segundoCarro.preco);
+
+    let pontosPrimeiroCarro = 0;
+    let pontosSegundoCarro = 0;
+
+    const comparacoes = [
+        potencialEtanol,
+        potencialGasolina,
+        torqueEtanol,
+        torqueGasolina,
+        consumoCidadeEtanol,
+        consumoEstradaEtanol,
+        consumoCidadeGasolina,
+        consumoEstradaGasolina,
+        zeroACemEtanol,
+        zeroACemGasolina,
+        velocidadeMaximaEtanol,
+        velocidadeMaximaGasolina,
+        portaMalas,
+        preco
+    ];
+
+    comparacoes.forEach(function(comparacao) {
+
+        if (comparacao[0] === "vencedor") {
+            pontosPrimeiroCarro++;
+        }
+
+        if (comparacao[1] === "vencedor") {
+            pontosSegundoCarro++;
+        }
+    });
+
+    let textoResultado = "";
+
+    if (pontosPrimeiroCarro > pontosSegundoCarro) {
+
+        textoResultado = primeiroCarro.nome + " venceu a comparação.";
+
+    }
+
+    else if (pontosSegundoCarro > pontosPrimeiroCarro) {
+
+        textoResultado = segundoCarro.nome + " venceu a comparação.";
+
+    }
+
+    else {
+
+        textoResultado = " A comparação terminou em empate.";
+
+    }
 
 
     resultado.innerHTML = `
@@ -310,11 +483,15 @@ botaoComparar.addEventListener("click", function() {
 
                 <strong>${primeiroCarro.nome}</strong>
 
-                <p>${primeiroCarro.potenciaEtanol} cv</p>
+                <p class="${potencialEtanol[0]}">
+                    ${primeiroCarro.potenciaEtanol} cv
+                </p>
                 <small>Etanol</small>
 
-                <p>${primeiroCarro.potenciaGasolina ?? "Não informado"} cv</p>
-                <small>Gasolina</small>
+                <p class="${potencialGasolina[0]}">
+                    ${primeiroCarro.potenciaGasolina ?? "Não informado"} cv
+                </p>
+                <small>Gasolina</samll>
 
             </div>
 
@@ -323,10 +500,14 @@ botaoComparar.addEventListener("click", function() {
 
                 <strong>${segundoCarro.nome}</strong>
 
-                <p>${segundoCarro.potenciaEtanol} cv</p>
+                <p class="${potencialEtanol[1]}">
+                    ${segundoCarro.potenciaEtanol} cv
+                </p>
                 <small>Etanol</small>
 
-                <p>${segundoCarro.potenciaGasolina ?? "Não informado"} cv</p>
+                <p class="${potencialGasolina[1]}">
+                    ${segundoCarro.potenciaGasolina ?? "Não informado"} cv
+                </p>
                 <small>Gasolina</small>
 
             </div>
@@ -346,12 +527,16 @@ botaoComparar.addEventListener("click", function() {
 
                 <strong>${primeiroCarro.nome}</strong>
 
-                <p>${primeiroCarro.torqueEtanol} kgfm</p>
+                <p class="${torqueEtanol[0]}">
+                    ${primeiroCarro.torqueEtanol} kgfm
+                </p>
                 <small>Etanol</small>
 
-                <p>${primeiroCarro.torqueGasolina ?? "Não informado"} kgfm</p>
+                <p class="${torqueGasolina[0]}">
+                    ${primeiroCarro.torqueGasolina ?? "Não informado"} kgfm
+                </p>
                 <small>Gasolina</small>
-
+                
             </div>
 
 
@@ -359,10 +544,14 @@ botaoComparar.addEventListener("click", function() {
 
                 <strong>${segundoCarro.nome}</strong>
 
-                <p>${segundoCarro.torqueEtanol} kgfm</p>
+                <p class="${torqueEtanol[1]}"> 
+                    ${segundoCarro.torqueEtanol} kgfm
+                </p>
                 <small>Etanol</small>
 
-                <p>${segundoCarro.torqueGasolina ?? "Não informado"} kgfm</p>
+                <p class="${torqueGasolina[1]}">
+                    ${segundoCarro.torqueGasolina ?? "Não informado"} kgfm
+                </p>
                 <small>Gasolina</small>
 
             </div>
@@ -399,6 +588,44 @@ botaoComparar.addEventListener("click", function() {
 
     </div>
 
+    <div class="categoria-comparacao">
+
+        <h3>Preço</h3>
+
+        <div class="valores-categoria">
+
+            <div class="valor-carro">
+
+                <strong>${primeiroCarro.nome}</strong>
+
+                <p class="${preco[0]}">
+                    ${formatarPreco(primeiroCarro.preco)}
+                </p>
+
+                <small>Valor de referência</small>
+
+            </div>
+
+            <div class="valor-carro">
+
+                <strong>${segundoCarro.nome}</strong>
+
+                    <p class="${preco[1]}">
+                        ${formatarPreco(segundoCarro.preco)}
+                    </p>
+
+                    <small>Valor de referencia</small>
+
+            </div>
+
+        </div>
+
+        <p class="diferenca-preco">
+            Variação entre os preços: ${formatarPreco(diferencaPreco)}
+        </p>
+
+    </div>
+        
 
     <div class="categoria-comparacao">
 
@@ -410,16 +637,24 @@ botaoComparar.addEventListener("click", function() {
 
                 <strong>${primeiroCarro.nome}</strong>
 
-                <p>${primeiroCarro.consumoCidadeEtanol} km/l</p>
+                <p class="${consumoCidadeEtanol[0]}">
+                    ${primeiroCarro.consumoCidadeEtanol} km/l
+                </p>
                 <small>Cidade - Etanol</small>
 
-                <p>${primeiroCarro.consumoEstradaEtanol} km/l</p>
+                <p class="${consumoEstradaEtanol[0]}">
+                    ${primeiroCarro.consumoEstradaEtanol} km/l
+                </p>
                 <small>Estrada - Etanol</small>
 
-                <p>${primeiroCarro.consumoCidadeGasolina} km/l</p>
+                <p class="${consumoCidadeGasolina[0]}">
+                    ${primeiroCarro.consumoCidadeGasolina} km/l
+                </p>
                 <small>Cidade - Gasolina</small>
 
-                <p>${primeiroCarro.consumoEstradaGasolina} km/l</p>
+                <p class="${consumoEstradaGasolina[0]}">
+                    ${primeiroCarro.consumoEstradaGasolina} km/l
+                </p>
                 <small>Estrada - Gasolina</small>
 
             </div>
@@ -429,16 +664,24 @@ botaoComparar.addEventListener("click", function() {
 
                 <strong>${segundoCarro.nome}</strong>
 
-                <p>${segundoCarro.consumoCidadeEtanol} km/l</p>
+                <p class="${consumoCidadeEtanol[1]}">
+                    ${segundoCarro.consumoCidadeEtanol} km/l
+                </p>
                 <small>Cidade - Etanol</small>
 
-                <p>${segundoCarro.consumoEstradaEtanol} km/l</p>
+                <p class="${consumoEstradaEtanol[1]}">
+                    ${segundoCarro.consumoEstradaEtanol} km/l
+                </p>
                 <small>Estrada - Etanol</small>
 
-                <p>${segundoCarro.consumoCidadeGasolina} km/l</p>
+                <p class="${consumoCidadeGasolina[1]}">
+                    ${segundoCarro.consumoCidadeGasolina} km/l
+                </p>
                 <small>Cidade - Gasolina</small>
 
-                <p>${segundoCarro.consumoEstradaGasolina} km/l</p>
+                <p class="${consumoEstradaGasolina[1]}">
+                    ${segundoCarro.consumoEstradaGasolina} km/l
+                </p>
                 <small>Estrada - Gasolina</small>
 
             </div>
@@ -458,28 +701,28 @@ botaoComparar.addEventListener("click", function() {
 
                 <strong>${primeiroCarro.nome}</strong>
 
-                <p>
+                <p class="${zeroACemEtanol[0]}">
                     ${primeiroCarro.zeroACemEtanol !== null
                         ? primeiroCarro.zeroACemEtanol + " s"
                         : "Não informado"}
                 </p>
                 <small>0–100 km/h - Etanol</small>
 
-                <p>
+                <p class="${zeroACemGasolina[0]}">
                     ${primeiroCarro.zeroACemGasolina !== null
                         ? primeiroCarro.zeroACemGasolina + " s"
                         : "Não informado"}
                 </p>
                 <small>0–100 km/h - Gasolina</small>
 
-                <p>
+                <p class="${velocidadeMaximaEtanol[0]}">
                     ${primeiroCarro.velocidadeMaximaEtanol !== null
                         ? primeiroCarro.velocidadeMaximaEtanol + " km/h"
                         : "Não informado"}
                 </p>
                 <small>Velocidade máxima - Etanol</small>
 
-                <p>
+                <p class="${velocidadeMaximaGasolina[0]}">
                     ${primeiroCarro.velocidadeMaximaGasolina !== null
                         ? primeiroCarro.velocidadeMaximaGasolina + " km/h"
                         : "Não informado"}
@@ -493,28 +736,28 @@ botaoComparar.addEventListener("click", function() {
 
                 <strong>${segundoCarro.nome}</strong>
 
-                <p>
+                <p class="${zeroACemEtanol[1]}">
                     ${segundoCarro.zeroACemEtanol !== null
                         ? segundoCarro.zeroACemEtanol + " s"
                         : "Não informado"}
                 </p>
                 <small>0–100 km/h - Etanol</small>
 
-                <p>
+                <p class="${zeroACemGasolina[1]}">
                     ${segundoCarro.zeroACemGasolina !== null
                         ? segundoCarro.zeroACemGasolina + " s"
                         : "Não informado"}
                 </p>
                 <small>0–100 km/h - Gasolina</small>
 
-                <p>
+                <p class="${velocidadeMaximaEtanol[1]}">
                     ${segundoCarro.velocidadeMaximaEtanol !== null
                         ? segundoCarro.velocidadeMaximaEtanol + " km/h"
                         : "Não informado"}
                 </p>
                 <small>Velocidade máxima - Etanol</small>
 
-                <p>
+                <p class="${velocidadeMaximaGasolina[1]}">
                     ${segundoCarro.velocidadeMaximaGasolina !== null
                         ? segundoCarro.velocidadeMaximaGasolina + " km/h"
                         : "Não informado"}
@@ -566,7 +809,7 @@ botaoComparar.addEventListener("click", function() {
                 </p>
                 <small>Entre-eixos</small>
 
-                <p>
+                <p class="${portaMalas[0]}">
                     ${primeiroCarro.portaMalas !== null
                         ? primeiroCarro.portaMalas + " litros"
                         : "Não informado"}
@@ -615,7 +858,7 @@ botaoComparar.addEventListener("click", function() {
                 </p>
                 <small>Entre-eixos</small>
 
-                <p>
+                <p class="${portaMalas[1]}">
                     ${segundoCarro.portaMalas !== null
                         ? segundoCarro.portaMalas + " litros"
                         : "Não informado"}
@@ -635,9 +878,63 @@ botaoComparar.addEventListener("click", function() {
 
     </div>
 
+    <div class="resultado final">
+
+        <h3>Resultado</h3>
+
+        <div class="placar-final">
+       
+             <div class="placar-carro">
+
+             <strong>${primeiroCarro.nome}</strong>
+
+             <p>${pontosPrimeiroCarro}</p>
+
+             <small>pontos</small>
+
+        </div>
+
+
+        <div class="placar-carro">
+
+            <strong>${segundoCarro.nome}</strong>
+
+            <p>${pontosSegundoCarro}</p>
+
+            <small>pontos</small>
+
+        </div>
+
+    </div>
+
+        <p class="resultado-vencedor">
+            ${textoResultado}
+        </p>
+
+        <button type="button" id="comparar-novamente">
+            Comparar outros carros
+        </button>    
+
+    </div>
+
 `;
 
 const categorias = document.querySelectorAll(".categoria-comparacao");
+
+const botaoCompararNovamente =
+    document.getElementById("comparar-novamente");
+
+    botaoCompararNovamente.addEventListener("click", function() {
+
+        carro1.value = "";
+        carro2.value = "";
+
+        mensagem.textContent = "";
+
+        document.querySelector(".selecao").scrollIntoView({
+            behavior: "smooth"
+        });
+    }); 
 
 const observador = new IntersectionObserver(function(entradas) {
 
