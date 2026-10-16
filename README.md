@@ -9,6 +9,7 @@ Comparador interativo de veículos desenvolvido com HTML, CSS e JavaScript.
 - Potência
 - Torque
 - Câmbio
+- Preço
 - Consumo
 - Desempenho
 - Dimensões
