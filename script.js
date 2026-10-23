@@ -284,6 +284,17 @@ botaoComparar.addEventListener("click", function() {
 
     mensagem.textContent = "";
 
+    const parametros = new URLSearchParams();
+
+    parametros.set("carro1", carro1.value);
+    parametros.set("carro2", carro2.value);
+
+    window.history.replaceState(
+        null,
+        "",
+        "?" + parametros.toString()
+    );
+
 
     const primeiroCarro = carros[carro1.value];
     const segundoCarro = carros[carro2.value];
@@ -878,7 +889,7 @@ botaoComparar.addEventListener("click", function() {
 
     </div>
 
-    <div class="resultado final">
+    <div class="resultado-final">
 
         <h3>Resultado</h3>
 
@@ -915,9 +926,28 @@ botaoComparar.addEventListener("click", function() {
             Comparar outros carros
         </button>    
 
+        <button type="button" id="copiar-link">
+            Copiar link
+        </button>
+
     </div>
 
 `;
+
+const botaoCopiarLink = document.getElementById("copiar-link");
+
+botaoCopiarLink.addEventListener("click", function(){
+
+    navigator.clipboard.writeText(window.location.href)
+
+        .then(function(){
+            botaoCopiarLink.textContent = "Link copiado!";
+        })
+
+        .catch(function(){
+            botaoCopiarLink.textContent = "Erro ao copiar";
+        });
+});
 
 const categorias = document.querySelectorAll(".categoria-comparacao");
 
@@ -965,3 +995,20 @@ categorias.forEach(function(categoria) {
     });
 
 }); 
+
+const parametrosURL = new URLSearchParams(window.location.search);
+
+const carro1URL = parametrosURL.get("carro1");
+const carro2URL = parametrosURL.get("carro2");
+
+if (
+    carros[carro1URL] &&
+    carros[carro2URL] &&
+    carro1URL !== carro2URL
+) {
+    carro1.value = carro1URL
+    carro2.value = carro2URL
+
+    botaoComparar.click();
+
+}

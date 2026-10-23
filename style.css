@@ -42,6 +42,33 @@ header p{
     color: #b3b3b3;
 }
 
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    margin-top: 30px;
+    transition: color 0.3s ease;
+}
+
+.navbar a{
+    color: #ffffff;
+    text-decoration: nome;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.navbar a:hover{
+    color: #ff3b30;
+}
+
+.navbar a:focus-visible{
+    outline: 2px solid #ff3b30;
+    outline-offset: 6px;
+    border-radius: 2px;
+}
+
 .selecao{
     min-height: 100vh;
 
@@ -371,7 +398,7 @@ footer p{
 .resultado-final h3{
     margin-bottom: 30px;
 
-    font-size: 1,6rem;
+    font-size: 1.6rem;
 
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -424,7 +451,8 @@ footer p{
     color: #70e000;
 }
 
-#comparar-novamente{
+#comparar-novamente,
+#copiar-link{
     margin-top: 30px;
 
     padding: 14px 28px;
@@ -444,8 +472,19 @@ footer p{
     cursor: pointer;
 }
 
-#comparar-novamente:hover{
+#comparar-novamente:hover,
+#copiar-link:hover{
     background-color: #d92d24;
+}
+
+#copiar-link{
+    margin-left: 12px;
+    background-color: #292929;
+    border-left-color: #ff3b30;
+}
+
+#copiar-link:hover{
+    background-color: #404040;
 }
 
 .diferenca-preco{
@@ -465,6 +504,46 @@ footer p{
         font-size: 2.5rem;
     }
 
+    #comparar-novamente,
+    #copiar-link{
+        display: block;
+        width: 100%;
+        max-width: 340px;
+        margin: 20px auto 0;
+    }
+
+    .resultado-final{
+        padding: 20px 12px;
+    }
+
+    .placar-carro{
+        padding: 12px 6px;
+    }
+
+    .placar-carro strong{
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+
+    .placar-carro p{
+        font-size: 2rem;
+    }
+
+    .resultado-vencedor{
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .navbar{
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 25px;
+    }
+
+    .navbar a{
+        padding: 12px 8px;
+        font-size: 0.9rem;
+    }
 
     .selecao{
         min-height: auto;
