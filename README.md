@@ -19,6 +19,8 @@ Comparador interativo de veículos desenvolvido com **HTML5, CSS3 e JavaScript**
 - Botão para iniciar uma nova comparação.
 - Layout responsivo para computadores e dispositivos móveis.
 - Animações durante a rolagem da página.
+- Navbar fixa e inteligente, que desaparece ao rolar para baixo e reaparece ao rolar para cima.
+- Navegação suave entre as seções do site (smooth scrolling).
 
 ## Catálogo de veículos
 
@@ -65,6 +67,23 @@ Os seletores são preenchidos automaticamente a partir dos veículos cadastrados
 
 O projeto não exige instalação de dependências externas.
 
+## Site publicado
+
+O **Auto Compare** está publicado e disponível gratuitamente na internet por meio do Cloudflare Pages.
+
+**Acesse o projeto:** https://auto-compare.pages.dev/
+
+O site pode ser acessado por computadores, tablets e smartphones, sem necessidade de instalar programas.
+
+### Hospedagem e atualizações
+
+- **Plataforma:** Cloudflare Pages.
+- **Controle de versão:** Git e GitHub.
+- **Repositório:** privado.
+- **Branch de produção:** `main`.
+- **Publicação:** integrada ao GitHub, permitindo novas implantações após atualizações na branch principal.
+
+
 ## Compartilhamento de comparações
 
 O Auto Compare permite compartilhar comparações por meio de parâmetros na URL.
@@ -72,4 +91,17 @@ O Auto Compare permite compartilhar comparações por meio de parâmetros na URL
 Exemplo:
 
 ```text
-?carro1=polo&car
+?carro1=polo&carro2=onix
+```
+
+Ao abrir um link com parâmetros válidos, o site seleciona automaticamente os dois veículos e executa a comparação.
+
+## Status do projeto
+
+**Publicado — em desenvolvimento contínuo.**
+
+O Auto Compare possui uma versão pública funcional, hospedada no Cloudflare Pages.
+
+O projeto continuará recebendo melhorias visuais, novas funcionalidades e atualizações no catálogo de veículos.
+
+**Acesse o site:** https://auto-compare.pages.dev/

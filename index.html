@@ -1,76 +1,101 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
+    <!-- ==========================================
+         CABEÇALHO DO DOCUMENTO
+         Configurações, título e CSS
+    =========================================== -->
     <head>
 
         <meta charset="UTF-8">
-        
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>Auto Compare</title>
-        
+
         <link rel="stylesheet" href="style.css">
 
     </head>
 
     <body>
 
+        <!-- ==========================================
+             PÁGINA INICIAL
+             Título, apresentação e navegação
+        =========================================== -->
         <header id="inicio">
 
             <h1>Auto Compare</h1>
 
             <p>Compare carros populares do Brasil de forma simples e visual</p>
 
+            <!-- BARRA DE NAVEGAÇÃO -->
             <nav class="navbar">
 
                 <a href="#inicio">Início</a>
 
                 <a href="#selecao-carros">Comparar</a>
-                
+
             </nav>
 
         </header>
 
+
+        <!-- ==========================================
+             CONTEÚDO PRINCIPAL
+        =========================================== -->
         <main>
 
+            <!-- ======================================
+                 SELEÇÃO DOS VEÍCULOS
+            ======================================= -->
             <section class="selecao">
 
                 <h2>Escolha seus carros</h2>
 
                 <p>Selecione dois veículos para iniciar a comparação.</p>
 
-            <div class="seletores">
+                <!-- CAMPOS DE SELEÇÃO -->
+                <div class="seletores">
 
-                <div class="campo-carro">
+                    <!-- PRIMEIRO VEÍCULO -->
+                    <div class="campo-carro">
 
-                <label for="carro1">Carro 01</label>
+                        <label for="carro1">Carro 01</label>
 
-                 <select id="carro1">
-                    <option value="">Selecione um carro</option>
-                 </select>
+                        <select id="carro1">
+                            <option value="">Selecione um carro</option>
+                        </select>
+
+                    </div>
+
+                    <!-- SEGUNDO VEÍCULO -->
+                    <div class="campo-carro">
+
+                        <label for="carro2">Carro 02</label>
+
+                        <select id="carro2">
+                            <option value="">Selecione um carro</option>
+                        </select>
+
+                    </div>
 
                 </div>
 
-                <div class="campo-carro">
-
-                <label for="carro2">Carro 02</label>
-
-                 <select id="carro2">
-                    <option value="">Selecione um carro</option>
-                 </select>
-
-                </div>
-
-            </div>
-
-
+                <!-- BOTÃO PARA EXECUTAR A COMPARAÇÃO -->
                 <button type="button" id="comparar">Comparar</button>
 
+                <!-- MENSAGENS DE VALIDAÇÃO -->
                 <p id="mensagem"></p>
 
-
+                
             </section>
 
+
+            <!-- ======================================
+                 RESULTADOS DA COMPARAÇÃO
+                 Conteúdo gerado pelo JavaScript
+            ======================================= -->
             <section class="comparacao" id="selecao-carros">
 
                 <h2>Comparação</h2>
@@ -81,9 +106,19 @@
 
         </main>
 
+
+        <!-- ==========================================
+             ARQUIVOS JAVASCRIPT
+             Os dados dos carros são carregados
+             antes da lógica de comparação
+        =========================================== -->
         <script src="carros.js"></script>
         <script src="script.js"></script>
 
+
+        <!-- ==========================================
+             RODAPÉ
+        =========================================== -->
         <footer>
             <p>&copy; 2026 Auto Compare. Todos os direitos reservados.</p>
         </footer>

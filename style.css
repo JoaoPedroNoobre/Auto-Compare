@@ -1,3 +1,12 @@
+/* ============================================================
+   AUTO COMPARE - ESTILIZAÇÃO DO SITE
+   ============================================================ */
+
+
+/* ============================================================
+   01 - RESET E CONFIGURAÇÕES GERAIS
+   ============================================================ */
+
 *{
     margin: 0;
     padding: 0;
@@ -11,11 +20,24 @@ body{
     overflow-x: clip;
 }
 
+/* ROLAGEM SUAVE ENTRE AS SEÇÕES */
+
+html{
+    scroll-behavior: smooth;
+}
+
+/* CORES E FONTE PADRÃO */
+
 body{
     background-color: #0d0d0d;
     color: #ffffff;
     font-family: Arial, sans-serif;
 }
+
+
+/* ============================================================
+   02 - CABEÇALHO / TELA INICIAL
+   ============================================================ */
 
 header{
     min-height: 100vh;
@@ -29,11 +51,15 @@ header{
     text-align: center;
 }
 
+/* TÍTULO PRINCIPAL */
+
 header h1{
     font-size: 4rem;
     text-transform: uppercase;
     letter-spacing: 4px;
 }
+
+/* DESCRIÇÃO DO SITE */
 
 header p{
     margin-top: 20px;
@@ -42,14 +68,45 @@ header p{
     color: #b3b3b3;
 }
 
+
+/* ============================================================
+   03 - NAVBAR / BARRA DE NAVEGAÇÃO
+   ============================================================ */
+
+/* POSIÇÃO FIXA E APARÊNCIA */
+
 .navbar{
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    z-index: 1000;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     gap: 35px;
-    margin-top: 30px;
-    transition: color 0.3s ease;
+    padding: 20px 30px;
+
+    margin-top: 0;
+
+    background-color: rgba( 13, 13, 13, 0.96);
+
+    border-bottom: 1px solid #333333;
+
+    transition: transform 0.35s ease;
 }
+
+/* OCULTAR NAVBAR AO ROLAR PARA BAIXO */
+
+.navbar.oculta{
+    transform: translateY(-100%);
+}
+
+/* ESTILO DOS LINKS */
 
 .navbar a{
     color: #ffffff;
@@ -59,15 +116,26 @@ header p{
     letter-spacing: 1px;
 }
 
+/* EFEITO AO PASSAR O MOUSE */
+
 .navbar a:hover{
     color: #ff3b30;
 }
+
+/* DESTAQUE PARA NAVEGAÇÃO POR TECLADO */
 
 .navbar a:focus-visible{
     outline: 2px solid #ff3b30;
     outline-offset: 6px;
     border-radius: 2px;
 }
+
+
+/* ============================================================
+   04 - SEÇÃO DE SELEÇÃO DOS CARROS
+   ============================================================ */
+
+/* CONTAINER DA SEÇÃO */
 
 .selecao{
     min-height: 100vh;
@@ -76,6 +144,8 @@ header p{
 
     background-color: #151515;
 }
+
+/* TÍTULO DA SEÇÃO */
 
 .selecao h2{
     font-size: 3rem;
@@ -89,20 +159,33 @@ header p{
     padding-left: 15px;
 }
 
+/* DESCRIÇÃO DA SEÇÃO */
+
 .selecao p{
     color: #a8a8a8;
     margin-bottom: 40px;
 }
+
+
+/* ============================================================
+   05 - CAMPOS DE SELEÇÃO
+   ============================================================ */
+
+/* ORGANIZAÇÃO DOS DOIS CAMPOS */
 
 .seletores{
     display: flex;
     gap: 30px;
 }
 
+/* CONTAINER INDIVIDUAL DE CADA CARRO */
+
 .campo-carro{
     flex: 1;
     min-width: 0;
 }
+
+/* RÓTULOS CARRO 01 E CARRO 02 */
 
 .campo-carro label{
     display: block;
@@ -115,6 +198,8 @@ header p{
 
     color: #d0d0d0;
 }
+
+/* MENUS DE SELEÇÃO */
 
 .campo-carro select{
     width: 100%;
@@ -130,10 +215,19 @@ header p{
     font-size: 1rem;
 }
 
+/* DESTAQUE DO CAMPO SELECIONADO */
+
 .campo-carro select:focus{
     outline: none;
     border-color: #ff3b30;
 }
+
+
+/* ============================================================
+   06 - BOTÃO COMPARAR E MENSAGENS
+   ============================================================ */
+
+/* BOTÃO PRINCIPAL */
 
 .selecao button{
     margin-top: 35px;
@@ -155,9 +249,13 @@ header p{
     cursor: pointer;
 }
 
+/* EFEITO AO PASSAR O MOUSE */
+
 .selecao button:hover{
     background-color: #d92d24;
 }
+
+/* MENSAGENS DE VALIDAÇÃO */
 
 #mensagem{
     margin-top: 20px;
@@ -167,6 +265,13 @@ header p{
     color: #ff6b63;
 }
 
+
+/* ============================================================
+   07 - SEÇÃO DE COMPARAÇÃO
+   ============================================================ */
+
+/* ÁREA PRINCIPAL DA COMPARAÇÃO */
+
 .comparacao{
     min-height: 100vh;
 
@@ -175,12 +280,21 @@ header p{
     background-color: #0d0d0d;
 }
 
+/* CONTAINER DOS RESULTADOS GERADOS PELO JAVASCRIPT */
+
 #resultado{
     width: 100%;
     min-width: 0;
 
     margin-top: 40px;
 }
+
+
+/* ============================================================
+   08 - CARTÕES SUPERIORES DOS CARROS
+   ============================================================ */
+
+/* ORGANIZAÇÃO DOS DOIS VEÍCULOS */
 
 .topo-comparacao{
     display: flex;
@@ -190,6 +304,8 @@ header p{
 
     gap: 30px;
 }
+
+/* CARTÃO DE CADA VEÍCULO */
 
 .carro-comparado{
     flex: 1;
@@ -202,6 +318,8 @@ header p{
     border-top: 4px solid #ff3b30;
 }
 
+/* NOME DO VEÍCULO */
+
 .carro-comparado h3{
     margin-bottom: 25px;
 
@@ -211,6 +329,13 @@ header p{
 
     overflow-wrap: anywhere;
 }
+
+
+/* ============================================================
+   09 - IMAGENS DOS VEÍCULOS
+   ============================================================ */
+
+/* CONTAINER DA IMAGEM */
 
 .imagem-carro{
     width: 100%;
@@ -223,6 +348,8 @@ header p{
     border: 1px solid #2f2f2f;
 }
 
+/* ENQUADRAMENTO DA FOTOGRAFIA */
+
 .imagem-carro img{
     width: 100%;
     height: 100%;
@@ -230,6 +357,13 @@ header p{
     object-fit: cover;
     object-position: center;
 }
+
+
+/* ============================================================
+   10 - CATEGORIAS DE COMPARAÇÃO
+   ============================================================ */
+
+/* CARTÃO DE CADA CATEGORIA E ANIMAÇÃO INICIAL */
 
 .categoria-comparacao{
     width: 100%;
@@ -252,11 +386,15 @@ header p{
         transform 0.6s ease;
 }
 
+/* ATIVAÇÃO DA ANIMAÇÃO AO ROLAR A PÁGINA */
+
 .categoria-comparacao.ativa{
     opacity: 1;
 
     transform: translateY(0);
 }
+
+/* TÍTULO DA CATEGORIA */
 
 .categoria-comparacao h3{
     position: relative;
@@ -271,6 +409,8 @@ header p{
 
     font-size: 1.6rem;
 }
+
+/* LINHA VERMELHA DECORATIVA DO TÍTULO */
 
 .categoria-comparacao h3::after{
     content: "";
@@ -288,6 +428,13 @@ header p{
     background-color: #ff3b30;
 }
 
+
+/* ============================================================
+   11 - VALORES DAS ESPECIFICAÇÕES
+   ============================================================ */
+
+/* ORGANIZAÇÃO EM DUAS COLUNAS */
+
 .valores-categoria{
     display: grid;
 
@@ -299,6 +446,8 @@ header p{
     min-width: 0;
 }
 
+/* COLUNA DE CADA VEÍCULO */
+
 .valor-carro{
     width: 100%;
     min-width: 0;
@@ -308,9 +457,13 @@ header p{
     text-align: center;
 }
 
+/* DIVISÓRIA VERTICAL ENTRE OS CARROS */
+
 .valor-carro + .valor-carro{
     border-left: 3px solid #333333;
 }
+
+/* NOME DO VEÍCULO EM CADA CATEGORIA */
 
 .valor-carro strong{
     display: flex;
@@ -333,6 +486,8 @@ header p{
     overflow-wrap: anywhere;
 }
 
+/* VALORES NUMÉRICOS DAS ESPECIFICAÇÕES */
+
 .valor-carro p{
     margin: 12px 0 3px;
 
@@ -341,6 +496,8 @@ header p{
 
     color: #ffffff;
 }
+
+/* DESCRIÇÕES DAS MEDIDAS E COMBUSTÍVEIS */
 
 .valor-carro small{
     display: block;
@@ -355,6 +512,11 @@ header p{
 
     letter-spacing: 0.8px;
 }
+
+
+/* ============================================================
+   12 - RODAPÉ DO SITE
+   ============================================================ */
 
 footer{
     width: 100%;
@@ -376,13 +538,29 @@ footer p{
     letter-spacing: 0.5px;
 }
 
+
+/* ============================================================
+   13 - DESTAQUES DE COMPARAÇÃO
+   ============================================================ */
+
+/* ESPECIFICAÇÃO VENCEDORA */
+
 .valor-carro .vencedor{
     color: #70e000;
 }
 
+/* ESPECIFICAÇÕES EMPATADAS */
+
 .valor-carro .empate{
     color: #f5c542;
 }
+
+
+/* ============================================================
+   14 - RESULTADO FINAL E PLACAR
+   ============================================================ */
+
+/* CONTAINER DO RESULTADO */
 
 .resultado-final{
     width: 100%;
@@ -395,6 +573,8 @@ footer p{
     text-align: center;
 }
 
+/* TÍTULO DO RESULTADO */
+
 .resultado-final h3{
     margin-bottom: 30px;
 
@@ -404,18 +584,26 @@ footer p{
     letter-spacing: 3px;
 }
 
+/* PLACAR EM DUAS COLUNAS */
+
 .placar-final{
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 }
 
+/* CARTÃO DE PONTUAÇÃO DE CADA CARRO */
+
 .placar-carro{
     padding: 20px;
 }
 
+/* LINHA ENTRE OS DOIS PLACARES */
+
 .placar-carro + .placar-carro{
     border-left: 3px solid #333333;
 }
+
+/* NOME DO VEÍCULO NO PLACAR */
 
 .placar-carro strong{
     display: block;
@@ -427,6 +615,8 @@ footer p{
     overflow-wrap: anywhere;
 }
 
+/* QUANTIDADE DE PONTOS */
+
 .placar-carro p{
     margin-top: 15px;
 
@@ -436,11 +626,15 @@ footer p{
     color: #ffffff;
 }
 
+/* DESCRIÇÃO DA PONTUAÇÃO */
+
 .placar-carro small{
     color: #8f8f8f;
 
     text-transform: uppercase;
 }
+
+/* MENSAGEM QUE INDICA O VENCEDOR */
 
 .resultado-vencedor{
     margin-top: 30px;
@@ -450,6 +644,13 @@ footer p{
 
     color: #70e000;
 }
+
+
+/* ============================================================
+   15 - BOTÕES DO RESULTADO
+   ============================================================ */
+
+/* COMPARAR NOVAMENTE E COPIAR LINK */
 
 #comparar-novamente,
 #copiar-link{
@@ -472,10 +673,14 @@ footer p{
     cursor: pointer;
 }
 
+/* EFEITO AO PASSAR O MOUSE */
+
 #comparar-novamente:hover,
 #copiar-link:hover{
     background-color: #d92d24;
 }
+
+/* ESTILO ESPECÍFICO DO BOTÃO COPIAR LINK */
 
 #copiar-link{
     margin-left: 12px;
@@ -483,9 +688,16 @@ footer p{
     border-left-color: #ff3b30;
 }
 
+/* EFEITO AO PASSAR O MOUSE NO BOTÃO COPIAR */
+
 #copiar-link:hover{
     background-color: #404040;
 }
+
+
+/* ============================================================
+   16 - DIFERENÇA ENTRE OS PREÇOS
+   ============================================================ */
 
 .diferenca-preco{
     margin-top: 25px;
@@ -494,7 +706,15 @@ footer p{
     color: #8f8f8f;
 }
 
+
+/* ============================================================
+   17 - RESPONSIVIDADE PARA TABLETS E CELULARES
+   TELAS COM LARGURA MÁXIMA DE 768px
+   ============================================================ */
+
 @media (max-width: 768px){
+
+    /* CABEÇALHO */
 
     header{
         padding: 0 20px;
@@ -504,6 +724,9 @@ footer p{
         font-size: 2.5rem;
     }
 
+
+    /* BOTÕES DE COMPARAÇÃO E COMPARTILHAMENTO */
+
     #comparar-novamente,
     #copiar-link{
         display: block;
@@ -511,6 +734,9 @@ footer p{
         max-width: 340px;
         margin: 20px auto 0;
     }
+
+
+    /* RESULTADO FINAL */
 
     .resultado-final{
         padding: 20px 12px;
@@ -534,16 +760,22 @@ footer p{
         line-height: 1.5;
     }
 
+
+    /* NAVBAR NO CELULAR */
+
     .navbar{
         gap: 20px;
         flex-wrap: wrap;
-        margin-top: 25px;
+        margin-top: 0;
     }
 
     .navbar a{
         padding: 12px 8px;
         font-size: 0.9rem;
     }
+
+
+    /* SELEÇÃO DOS VEÍCULOS */
 
     .selecao{
         min-height: auto;
@@ -562,10 +794,14 @@ footer p{
     }
 
 
+    /* ÁREA DE COMPARAÇÃO */
+
     .comparacao{
         padding: 50px 7%;
     }
 
+
+    /* CARTÕES DOS VEÍCULOS */
 
     .topo-comparacao{
         gap: 10px;
@@ -580,6 +816,8 @@ footer p{
     }
 
 
+    /* IMAGENS DOS CARROS */
+
     .imagem-carro{
         height: auto;
 
@@ -588,6 +826,8 @@ footer p{
         margin-bottom: 20px;
     }
 
+
+    /* CATEGORIAS DE COMPARAÇÃO */
 
     .categoria-comparacao{
         padding: 20px 10px;
@@ -599,6 +839,8 @@ footer p{
         font-size: 1.3rem;
     }
 
+
+    /* VALORES DAS ESPECIFICAÇÕES */
 
     .valor-carro{
         padding: 0 8px;
@@ -620,11 +862,22 @@ footer p{
 
 }
 
+
+/* ============================================================
+   18 - RESPONSIVIDADE PARA TELAS MUITO PEQUENAS
+   TELAS COM LARGURA MÁXIMA DE 400px
+   ============================================================ */
+
 @media (max-width: 400px){
+
+    /* ÁREA DE COMPARAÇÃO */
 
     .comparacao{
         padding: 40px 5%;
     }
+
+
+    /* CARTÕES DOS CARROS */
 
     .topo-comparacao{
         gap: 6px;
@@ -639,9 +892,14 @@ footer p{
     }
 
 
+    /* CATEGORIAS */
+
     .categoria-comparacao{
         padding: 18px 6px;
     }
+
+
+    /* VALORES DAS ESPECIFICAÇÕES */
 
     .valor-carro{
         padding: 0 5px;
